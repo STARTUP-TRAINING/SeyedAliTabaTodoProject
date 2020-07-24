@@ -16,8 +16,8 @@
                 <div class="add-search">
                     <form>
                         <label>Add Todo : </label>
-                        <input name="toDoName" type="text">
-                        <button>Add</button>
+                        <input id="todo-input" type="text">
+                        <button id="add-to-list">Add</button>
                     </form>
 
                 </div>
@@ -30,14 +30,14 @@
                 <h2>
                     TODO
                 </h2>
-                <div class="board-col-1">
+                <div class="board-col-1" id="TodoList">
                     <div class="list-item">
-                        languagedddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+                        <p>languagedddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p>
                         <div class="btn-context">
-                            <button class="table-switch-btn">Todo</button>
-                            <button class="table-switch-btn">Doing</button>
-                            <button class="table-switch-btn">Done</button>
-                            <button class="table-switch-btn">remove</button>
+                                <button id="moveTodo" class="table-switch-btn">Todo</button>
+                            <button id="moveDone" class="table-switch-btn">Doing</button>
+                            <button id="moveDoing" class="table-switch-btn">Done</button>
+                            <button id="remove" class="table-switch-btn">remove</button>
                         </div>
 
                     </div>
@@ -55,7 +55,7 @@
                 <h2>
                     DOING
                 </h2>
-                <div class="board-col-1">
+                <div class="board-col-1" id="DoingList">
 
                 </div>
             </div>
@@ -65,7 +65,7 @@
                 <h2>
                     DONE
                 </h2>
-                <div class="board-col-1">
+                <div class="board-col-1" id="DoneList">
 
                 </div>
             </div>
@@ -89,6 +89,8 @@
         <li></li>
     </ul>
 </div >
+
+<script src="main.js"></script>
 
 </body>
 </html>
