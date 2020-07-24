@@ -1,20 +1,36 @@
 let store = {
-    TodoList: [],
-    DoingList: [],
-    DoneList: [],
+    Todo: [],
+    Doing: [],
+    Done: [],
+}
+
+function addAndRemoveCustomList (removeFrom, listItem, addTo){
+    console.log(store[addTo]);
+    store[addTo].push(store[removeFrom][listItem]);
+    removeFromList(removeFrom, listItem);
 }
 
 function removeFromList(key, listItem){
-    console.log(key, listItem);
-    store[key].splice(listItem, 1);
+    // console.log(key, listItem);
+    store[key][listItem] = "";
     console.log(store[key]);
     render();
 }
 
-function createBtn(key, listItem, name, func){
+function createRemoveBtn(key, listItem, name, func){
     let button = document.createElement('button');
     button.addEventListener('click', () =>{
         func(key, listItem);
+    })
+    button.innerHTML = name;
+    button.setAttribute('class', 'table-switch-btn')
+    return button;
+}
+
+function createMoveBtn(removeFrom, listItem, addTo, name){
+    let button = document.createElement('button');
+    button.addEventListener('click', () =>{
+        addAndRemoveCustomList(removeFrom, listItem, addTo);
     })
     button.innerHTML = name;
     button.setAttribute('class', 'table-switch-btn')
@@ -28,6 +44,8 @@ function render(){
         documentList.innerText = "";
         for(let listItem in store[key]){
             let value = store[key][listItem];
+            if(value === "")
+                continue;
             let nowItem = document.createElement('div');
             nowItem.className = "list-item";
             let pElement = document.createElement('p');
@@ -35,7 +53,10 @@ function render(){
             nowItem.appendChild(pElement);
             let btnContext = document.createElement('div');
             btnContext.setAttribute('class', 'btn-context');
-            btnContext.appendChild(createBtn(key, listItem, 'remove', removeFromList));
+            for(let moveKey in store){
+                btnContext.appendChild(createMoveBtn(key,listItem, moveKey, moveKey))
+            }
+            btnContext.appendChild(createRemoveBtn(key, listItem, 'remove', removeFromList));
             nowItem.appendChild(btnContext);
             documentList.appendChild(nowItem);
         }
@@ -49,8 +70,9 @@ addToListButton.addEventListener('click', (e)=>{
     e.preventDefault();
     const TodoInput = document.getElementById('todo-input');
     if(TodoInput.value !== ''){
-        store.TodoList.push(TodoInput.value);
+        store.Todo.push(TodoInput.value);
     }
+    TodoInput.value = "";
     render();
 });
 
