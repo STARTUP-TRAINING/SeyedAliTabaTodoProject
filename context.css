@@ -1,19 +1,43 @@
 .board{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 450px);
     gap: 30px;
     margin: 20px;
     min-height: 50px;
 }
 
+.board-col-1{
+    display: grid;
+    height: auto;
+    grid-template-columns: repeat(1,450px);
+    /*grid-template-rows: repeat(3,100px);*/
+    min-height: 0;  /* NEW */
+    min-width: 0;
+}
+
+.list-item {
+    overflow-wrap: break-word;
+    height: auto;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: rgba(255,251,253,0.11);
+}
+
 .item {
+    max-width: 100%;
     background-color: rgba(255,251,253,0.11);
 }
 
 h1 {
     align-content: center;
     padding: 30px;
-    color: white;
+    /*color: white;*/
+}
+
+h2 {
+    padding: 30px;
 }
 
 form {
@@ -38,7 +62,7 @@ input:focus {
 
 label{
     font-size: 1.5rem;
-    padding-left: 10px
+    padding-left: 10px;
 }
 
 button {
@@ -65,4 +89,16 @@ header {
 .header-background {
     margin: 20px 20px;
     background-color: rgba(255,251,253,0.11);
+}
+
+.table-switch-btn {
+    border-radius: 30px;
+    margin-right: 5px;
+    padding: 8px;
+    font-size: 1rem;
+}
+
+.btn-context {
+    padding-bottom: 0;
+    padding-top: 10px;
 }
