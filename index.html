@@ -7,75 +7,23 @@
     <link rel="stylesheet" href="background.css">
     <link rel="stylesheet" href="context.css">
 </head>
-<body>
-<div class="context">
-    <div>
-        <div class="header-background">
-            <header>
-                <h1>Taba ToDo List</h1>
-                <div class="add-search">
-                    <form>
-                        <label>Add Todo : </label>
-                        <input id="todo-input" type="text">
-                        <button id="add-to-list">Add</button>
-                    </form>
-
-                </div>
-            </header>
-        </div>
-    </div>
-    <div class="board">
-        <div>
-            <div class="item">
-                <h2>
-                    TODO
-                </h2>
-                <div class="board-col-1" id="Todo">
-
+    <body>
+        <div class="context">
+            <div>
+                <div class="header-background">
+                    <header>
+                        <h1>Taba ToDo List</h1>
+                    </header>
                 </div>
             </div>
+            <div class="board" id="main-board"></div>
         </div>
-        <div>
-            <div class="item">
-                <h2>
-                    DOING
-                </h2>
-                <div class="board-col-1" id="Doing">
 
-                </div>
-            </div>
-        </div>
-        <div>
-            <div class="item">
-                <h2>
-                    DONE
-                </h2>
-                <div class="board-col-1" id="Done">
+        <script src="render.js"></script>
+        <script src="utils/createId.js"></script>
+        <script src="reducer/column.js"></script>
+        <script src="reducer/item.js"></script>
+        <script src="main.js"></script>
 
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-
-<div class="area" >
-    <ul class="circles">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
-</div >
-
-<script src="main.js"></script>
-
-</body>
+    </body>
 </html>
