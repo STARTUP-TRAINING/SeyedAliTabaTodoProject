@@ -1,5 +1,5 @@
-let store = {
-}
+let store = {}
+
 render();
 
 
